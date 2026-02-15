@@ -101,11 +101,8 @@ function startSpeaking() {
   anchorFace.classList.remove('idle');
   tickerText.textContent = 'Broadcasting live...';
 
-  let boundaryEventsSeen = 0;
-
   utterance.onboundary = (event) => {
-    boundaryEventsSeen += 1;
-    const chunk = text.slice(event.charIndex, event.charIndex + 10);
+    const chunk = text.slice(event.charIndex, event.charIndex + 8);
     setMouthByChunk(chunk);
   };
 
