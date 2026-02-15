@@ -1,0 +1,262 @@
+:root {
+  --accent: #27e07e;
+  --muted: #90a2bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1a2740, #0d1118 58%);
+  color: #f4f7ff;
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 460px) 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.panel {
+  background: rgba(18, 24, 36, 0.94);
+  border: 1px solid #2b3850;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+textarea,
+select,
+input[type='range'] {
+  width: 100%;
+  margin-top: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+textarea,
+select {
+  background: #111826;
+  color: #f8fbff;
+  border: 1px solid #394760;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.65rem;
+}
+
+button {
+  border: 0;
+  background: var(--accent);
+  color: #031307;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+
+button.ghost {
+  background: transparent;
+  color: #d8e4ff;
+  border: 1px solid #5c6f91;
+}
+
+.monitor {
+  background: #090d14;
+  border: 4px solid #2e3a4c;
+  border-radius: 14px;
+  padding: 0.8rem;
+  min-height: 70vh;
+}
+
+.monitor header {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.6rem;
+}
+
+.screen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.4fr 0.36fr;
+  gap: 0.6rem;
+  height: calc(70vh - 52px);
+}
+
+.chart,
+.numbers,
+.signal,
+.anchor-box {
+  border-radius: 10px;
+  border: 1px solid #33415a;
+  padding: 0.75rem;
+}
+
+.chart {
+  background:
+    linear-gradient(120deg, #1ad37a33 1px, transparent 1px) 0 0 / 12px 12px,
+    linear-gradient(180deg, #081325, #111e34);
+  color: #9eb8dd;
+}
+
+.anchor-box {
+  background: linear-gradient(140deg, #182a45, #1f395e);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anchor-face {
+  --talk-shift: 0px;
+  width: min(250px, 94%);
+  aspect-ratio: 1 / 1.1;
+  align-self: center;
+  position: relative;
+  margin-top: 0.35rem;
+  transform: translateY(var(--talk-shift));
+  transition: transform 100ms linear;
+}
+
+.hair {
+  position: absolute;
+  inset: 2% 6% 35% 6%;
+  border-radius: 48% 52% 35% 36%;
+  background: linear-gradient(150deg, #402117, #6f422f);
+  z-index: 2;
+}
+
+.face-highlight {
+  position: absolute;
+  inset: 15% 17% 24% 17%;
+  border-radius: 44% 44% 50% 50%;
+  background: radial-gradient(circle at 55% 30%, #ffe7d5, #f5c7a8 67%);
+  box-shadow: 0 0 0 2px #e9b89844;
+  z-index: 3;
+}
+
+.eyebrows,
+.eyes {
+  position: absolute;
+  width: 52%;
+  left: 24%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.eyebrows {
+  top: 39%;
+}
+
+.eyebrows span {
+  width: 32px;
+  height: 6px;
+  background: #5e3528;
+  border-radius: 8px;
+}
+
+.eyes {
+  top: 44%;
+}
+
+.eyes span {
+  width: 18px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1e1713;
+  transform-origin: center;
+  transition: transform 120ms linear;
+}
+
+.anchor-face.blink .eyes span {
+  transform: scaleY(0.14);
+}
+
+.nose {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: 10px;
+  height: 16px;
+  transform: translateX(-50%);
+  border-radius: 40%;
+  background: #e6ac89;
+  z-index: 5;
+}
+
+.mouth-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 26%;
+  width: 74px;
+  height: 52px;
+  z-index: 6;
+}
+
+.mouth {
+  width: 100%;
+  height: 10px;
+  border-radius: 0 0 24px 24px;
+  background: radial-gradient(circle at center 25%, #f25662, #8b1821 78%);
+  transform-origin: center top;
+  transition: transform 85ms linear, height 85ms linear;
+}
+
+.anchor-face.idle .mouth {
+  height: 9px;
+}
+
+.blazer {
+  position: absolute;
+  inset: 70% 19% 4% 19%;
+  border-radius: 20px 20px 10px 10px;
+  background: linear-gradient(180deg, #c01f2f, #901421);
+  z-index: 1;
+}
+
+.ticker {
+  background: #bc1f22;
+  border-radius: 7px;
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  min-height: 2rem;
+}
+
+.numbers {
+  background: #0e1727;
+  color: #f2f7ff;
+  font-weight: 700;
+}
+
+.signal {
+  background: linear-gradient(180deg, #1f6226, #1f8c39);
+  text-align: center;
+  font-size: clamp(1rem, 2.6vw, 2rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .monitor {
+    min-height: 60vh;
+  }
+}
