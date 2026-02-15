@@ -1,13 +1,14 @@
 # AI Anchor Demo
 
-A lightweight browser app that turns text into speech and animates an anchor mouth in real time.
+A browser app that turns text into speech and animates an on-screen anchor in real time.
 
 ## Features
 
 - Text-to-speech narration using the Web Speech API.
-- Smooth mouth interpolation driven by speech boundary events.
-- Voice, speed, and pitch controls.
-- Financial-news style dashboard inspired by your reference image.
+- Improved anchor design (hair, eyebrows, eyes, nose, blazer, and depth lighting).
+- Smoother lip-sync motion with interpolation and phoneme-weighted mouth openness.
+- Blink animation and subtle head bob for more lifelike delivery.
+- Fallback mouth timing for browsers that do not emit speech boundary events.
 
 ## Run locally
 

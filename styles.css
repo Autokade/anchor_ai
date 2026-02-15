@@ -1,6 +1,4 @@
 :root {
-  --bg: #10141c;
-  --panel: #1a2333;
   --accent: #27e07e;
   --muted: #90a2bf;
 }
@@ -53,11 +51,6 @@ select {
   border: 1px solid #394760;
   border-radius: 10px;
   padding: 0.75rem;
-}
-
-.controls {
-  display: grid;
-  grid-template-columns: 1fr;
 }
 
 .buttons {
@@ -114,8 +107,10 @@ button.ghost {
 }
 
 .chart {
-  background: linear-gradient(150deg, #081325, #111e34);
-  color: #6f8ebe;
+  background:
+    linear-gradient(120deg, #1ad37a33 1px, transparent 1px) 0 0 / 12px 12px,
+    linear-gradient(180deg, #081325, #111e34);
+  color: #9eb8dd;
 }
 
 .anchor-box {
@@ -126,57 +121,112 @@ button.ghost {
 }
 
 .anchor-face {
-  width: min(240px, 92%);
-  aspect-ratio: 1 / 1;
+  --talk-shift: 0px;
+  width: min(250px, 94%);
+  aspect-ratio: 1 / 1.1;
   align-self: center;
-  background: radial-gradient(circle at 60% 34%, #ffd7be, #f3bf9f 66%);
-  border-radius: 46% 46% 52% 52%;
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
+  transform: translateY(var(--talk-shift));
+  transition: transform 100ms linear;
 }
 
 .hair {
   position: absolute;
-  inset: -6% -4% 38% -4%;
-  border-radius: 48% 52% 26% 24%;
-  background: linear-gradient(130deg, #3d1f16, #6a3f2d);
+  inset: 2% 6% 35% 6%;
+  border-radius: 48% 52% 35% 36%;
+  background: linear-gradient(150deg, #402117, #6f422f);
+  z-index: 2;
+}
+
+.face-highlight {
+  position: absolute;
+  inset: 15% 17% 24% 17%;
+  border-radius: 44% 44% 50% 50%;
+  background: radial-gradient(circle at 55% 30%, #ffe7d5, #f5c7a8 67%);
+  box-shadow: 0 0 0 2px #e9b89844;
+  z-index: 3;
+}
+
+.eyebrows,
+.eyes {
+  position: absolute;
+  width: 52%;
+  left: 24%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.eyebrows {
+  top: 39%;
+}
+
+.eyebrows span {
+  width: 32px;
+  height: 6px;
+  background: #5e3528;
+  border-radius: 8px;
 }
 
 .eyes {
-  position: absolute;
-  top: 43%;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  top: 44%;
 }
 
 .eyes span {
-  width: 14px;
+  width: 18px;
   height: 14px;
   border-radius: 50%;
   background: #1e1713;
+  transform-origin: center;
+  transition: transform 120ms linear;
+}
+
+.anchor-face.blink .eyes span {
+  transform: scaleY(0.14);
+}
+
+.nose {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: 10px;
+  height: 16px;
+  transform: translateX(-50%);
+  border-radius: 40%;
+  background: #e6ac89;
+  z-index: 5;
 }
 
 .mouth-wrap {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 18%;
-  width: 70px;
-  height: 44px;
+  bottom: 26%;
+  width: 74px;
+  height: 52px;
+  z-index: 6;
 }
 
 .mouth {
   width: 100%;
   height: 10px;
-  border-radius: 0 0 22px 22px;
-  background: #8b1821;
+  border-radius: 0 0 24px 24px;
+  background: radial-gradient(circle at center 25%, #f25662, #8b1821 78%);
   transform-origin: center top;
-  transition: transform 90ms linear, height 90ms linear;
+  transition: transform 85ms linear, height 85ms linear;
 }
 
 .anchor-face.idle .mouth {
-  height: 8px;
+  height: 9px;
+}
+
+.blazer {
+  position: absolute;
+  inset: 70% 19% 4% 19%;
+  border-radius: 20px 20px 10px 10px;
+  background: linear-gradient(180deg, #c01f2f, #901421);
+  z-index: 1;
 }
 
 .ticker {

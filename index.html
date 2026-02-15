@@ -10,7 +10,7 @@
     <main class="app-shell">
       <section class="panel left-panel">
         <h1>AI Anchor</h1>
-        <p class="subtitle">Type your script and let the anchor narrate it with smooth vocal animation.</p>
+        <p class="subtitle">Type your script and let the anchor narrate it with smoother voice-reactive facial animation.</p>
 
         <label for="scriptInput">News script</label>
         <textarea id="scriptInput" rows="8" placeholder="Markets are opening strong today as tech stocks rally...">Good evening. Welcome to market pulse. Tech stocks are surging today, with positive momentum across major indexes.</textarea>
@@ -40,16 +40,20 @@
         <div class="monitor">
           <header>MARKET DASHBOARD</header>
           <div class="screen-grid">
-            <div class="chart">Live chart placeholder</div>
+            <div class="chart">Trend graph</div>
             <div class="anchor-box">
               <div id="anchorFace" class="anchor-face idle">
                 <div class="hair"></div>
+                <div class="face-highlight"></div>
+                <div class="eyebrows"><span></span><span></span></div>
                 <div class="eyes">
                   <span></span><span></span>
                 </div>
+                <div class="nose"></div>
                 <div class="mouth-wrap">
                   <div id="mouth" class="mouth"></div>
                 </div>
+                <div class="blazer"></div>
               </div>
               <div class="ticker" id="tickerText">Ready to broadcast...</div>
             </div>
